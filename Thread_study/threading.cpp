@@ -1,21 +1,20 @@
-//mutual exclusion = »óÈ£¹èÁ¦ = Á¡À¯±ÇÀ» °¡Á®°¡°Ô ÇÔ. Àá±×°í ÇØÁ¦ÇÏ°í ÇÔ.
+//mutual exclusion = ìƒí˜¸ë°°ì œ = ì ìœ ê¶Œì„ ê°€ì ¸ê°€ê²Œ í•¨. ìž ê·¸ê³  í•´ì œí•˜ê³  í•¨.
 #include <mutex>
-//atomic ÀÚ·áÇüÀ» ¿øÀÚÀûÀ¸·Î Ã³¸®ÇÏ°Ô ¹Ù²ãÁÜ.
+//atomic ìžë£Œí˜•ì„ ì›ìžì ìœ¼ë¡œ ì²˜ë¦¬í•˜ê²Œ ë°”ê¿”ì¤Œ.
 #include <atomic>
 #include <thread>
 #include <iostream>
 
 int main()
 {
-	int a{}; //ÀÓ°è±¸¿ª(critical section) 
-
-	//º¯¼ö°¡ ÀûÀ¸¸é atomicÀÌ È¿À²ÀûÀ¸·Î º¸ÀÓ.
+	int a{}; //ìž„ê³„êµ¬ì—­(critical section) 
+	//ë³€ìˆ˜ê°€ ì ìœ¼ë©´ atomicì´ íš¨ìœ¨ì ìœ¼ë¡œ ë³´ìž„.
 	//std::atomic<int> a{};
-	/* atomic = ¿øÀÚÀûÀ¸·Î. ¿©·¯ ¿¬»êÀ» ¿¬»êÀ» ÇÑ ¹ø¸¸¿¡ ÀÏ¾î³ª´Â °ÍÀ¸·Î Ãë±ÞÇÔ.
-	µµÁß¿¡ ´Ù¸¥ ¾²·¹µåµéÀÌ ¸ø °Çµå¸².*/
+	/* atomic = ì›ìžì ìœ¼ë¡œ. ì—¬ëŸ¬ ì—°ì‚°ì„ ì—°ì‚°ì„ í•œ ë²ˆë§Œì— ì¼ì–´ë‚˜ëŠ” ê²ƒìœ¼ë¡œ ì·¨ê¸‰í•¨.
+	ë„ì¤‘ì— ë‹¤ë¥¸ ì“°ë ˆë“œë“¤ì´ ëª» ê±´ë“œë¦¼.*/
 	int b{ 17 };
 
-	//mutex = mutual exclusion »óÈ£ ¹èÁ¦
+	//mutex = mutual exclusion ìƒí˜¸ ë°°ì œ
 	std::mutex mut{};
 
 	std::thread thr_add
@@ -44,7 +43,7 @@ int main()
 		}
 	};
 
-	//ÇØ´ç ¾²·¹µå°¡ ³¡³¯ ¶§±îÁö ±â´Ù¸°´Ù´Â ¶æÀÇ ÇÔ¼ö.
+	//í•´ë‹¹ ì“°ë ˆë“œê°€ ëë‚  ë•Œê¹Œì§€ ê¸°ë‹¤ë¦°ë‹¤ëŠ” ëœ»ì˜ í•¨ìˆ˜.
 	thr_add.join();
 	thr_subtract.join();
 
