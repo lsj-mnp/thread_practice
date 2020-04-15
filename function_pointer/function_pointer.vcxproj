@@ -140,6 +140,9 @@
   <ItemGroup>
     <ClCompile Include="function_pointer.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CheapMutex.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
