@@ -14,7 +14,6 @@ int main()
 	도중에 다른 쓰레드들이 못 건드림.*/
 	int b{ 17 };
 
-	//mutex = mutual exclusion 상호 배제
 	std::mutex mut{};
 
 	std::thread thr_add
